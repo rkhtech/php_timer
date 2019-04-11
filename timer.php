@@ -292,18 +292,22 @@ class Timer {
                }
                if ($lineItems === []) {
                    $lineItems[0] = [
-                       $date,$value['totalTime'],"n/a"
+                       $date,
+                       $value['totalTime']/60,
+                       "n/a"
                    ];
                } else {
                    $lineItems[0][1]=$value['totalTime']/60;
                }
                foreach ($lineItems as $value) {
-                   $totalTime+= $value[1];
-                   printf("%s,%.2f,%s\n",$value[0],$value[1],$value[2]);
+                   if (stripos($value[0],$selector) === 0) {
+                       $totalTime+= $value[1];
+                       printf("%s,%.2f,%s\n",$value[0],$value[1],$value[2]);
+                   }
                }
            }
         }
-        printf("total,%.2f\n",$totalTime);
+        printf("total hours: %.2f\n",$totalTime);
     }
     function displayTimerHumanReadable($timeData) {
         $this->updateNow();

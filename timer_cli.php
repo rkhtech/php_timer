@@ -16,6 +16,7 @@ if ($argc < 2) {
     echo "        add        - Add specified minutes to today's clock\n";
     echo "        subtract   - Subtract specified minutes from today's clock\n";
     echo "        summary    - unknown\n";
+    echo "        report     - get a report\n";
 //    echo "example:\n";
 //    echo "        timer group/mytimer start\n";
 //    echo "        timer group/mytimer stop\n";
